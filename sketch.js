@@ -32,25 +32,25 @@ function draw()
 {
   background("black");  
   rectMode(CENTER);
-  contact();
+  contact(bullet,wall);
 
 
   drawSprites();
 }
 
-function contact()
+function contact(object1,object2)
 {
-  if(bullet.x + bullet.width/2 >= wall.x - wall.width/2 )
+  if(object1.x + object1.width/2 >= object2.x - object2.width/2 )
   {
-    bullet.shapeColor = "green";
-    bullet.velocityX = 0;
+    object1.shapeColor = "green";
+    object1.velocityX = 0;
     if(damage <= 10)
     {
-      wall.shapeColor = "green";
+      object2.shapeColor = "green";
     }
     if(damage > 10)
     {
-      wall.shapeColor = "red";
+      object2.shapeColor = "red";
     }
   }
 
